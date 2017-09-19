@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node src/app.js",
-    "dev": "nodemon src/app.js",
+    "start": "node app.js",
+    "dev": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Jhovany Morales Bruno (jhovanymb.info@gmail.com)",
@@ -13,7 +13,11 @@
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.1",
+    "crypto": "^1.0.1",
     "express": "^4.15.4",
+    "express-handlebars": "^3.0.0",
+    "jwt-simple": "^0.5.1",
+    "moment": "^2.18.1",
     "mongoose": "^4.11.11"
   },
   "devDependencies": {
