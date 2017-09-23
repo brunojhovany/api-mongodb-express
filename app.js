@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const exphbs = require('express-handlebars');
-const productsRoutes = require('./routes/productsRoutes.js');
+const routes = require('./routes/routes.js');
 const config = require('./config');
 //Declarations
 const app = express();
@@ -22,10 +22,18 @@ app.set('views', path.join(__dirname,'views'));
 app.engine('.hbs', exphbs({defaultLayout: 'main',
 extname:'.hbs'}));
 app.set('view engine', '.hbs');
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
 
 //routes
-app.use('/',productsRoutes);
-app.get('/home',(req, res)=>{
+app.use('/',routes);
+app.get('/home',(req, res) => {
+  res.render('products')
+})
+app.get('/logg',(req, res) => {
   res.render('login')
 })
 

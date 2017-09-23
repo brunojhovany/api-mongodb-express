@@ -15,7 +15,7 @@
 <div class="columns login" >
   <div class="column is-3">
 
-    <form method="post ">
+    <form id="loginDsgn" method="pos">
     <div class="field loginCenter">
       <p class="control has-icons-left has-icons-right">
         <input class="input" type="email" name="" placeholder="Email" value="">
@@ -48,5 +48,18 @@
 </div>
 
 <script type="text/javascript">
+  const formlogin = document.querySelector('#loginDsgn');
+  const formData = new FormData(formlogin);
 
+  formlogin.addEventListener('submit', event => {
+    event.preventDefault()
+    fetch('/signin', {
+      method:'POST',
+      body: formData
+    })
+    .then(res => res.json())
+    .then(data => {
+      localStorage.setItem('token',data.token);
+    })
+  });
 </script>

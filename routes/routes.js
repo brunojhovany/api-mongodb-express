@@ -5,7 +5,7 @@ const productController = require('../controllers/productcontroller');
 const userCtrl = require('../controllers/users');
 
 
-router.get('/products',auth, productController.getProducts);
+router.get('/products',productController.getProducts);
 router.get('/products/:productId', productController.getProduct);
 router.post('/products', productController.saveProduct);
 router.put('/products/:productId',productController.updateProduct);
